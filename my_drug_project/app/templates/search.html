@@ -1,0 +1,18 @@
+<!-- templates/search.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for a Drug</title>
+</head>
+<body>
+    <h1>Search for a Drug</h1>
+    <form method="POST" action="{{ url_for('search') }}">
+        <label for="drug_name">Drug Name:</label>
+        <input type="text" id="drug_name" name="drug_name" required>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

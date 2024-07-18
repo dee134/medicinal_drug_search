@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    {% if drugs %}
+        <ul>
+            {% for drug in drugs %}
+                <li>
+                    <strong>{{ drug.drug_name }}</strong><br>
+                    <a href="{{ url_for('drug_detail', drug_id=drug.drug_id) }}">View Details</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No drugs found matching your search criteria.</p>
+    {% endif %}
+    <a href="{{ url_for('search') }}">Back to Search</a>
+</body>
+</html>

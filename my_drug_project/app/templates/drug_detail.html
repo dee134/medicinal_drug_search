@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ drug.drug_name }} Details</title>
+</head>
+<body>
+    <h1>{{ drug.drug_name }}</h1>
+    <p>Description: {{ drug.drug_description }}</p>
+    <p>Manufacture Date: {{ drug.manufacture_date }}</p>
+    <p>Expiry Date: {{ drug.expiry_date }}</p>
+    <p>Cost : Rs.{{ drug.cost }}</p>
+    <!-- <p>Number per Sheet: {{ drug.number_per_sheet }}</p> -->
+    
+    <h2>Ingredients</h2>
+    <ul>
+        {% for ingredient in ingredients %}
+            <li>{{ ingredient.ingredient.ingredient_name }}: {{ ingredient.quantity }} </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Pharma Company</h2>
+    <p>{{ pharma_company.company_name }}</p>
+    <p>Contact Info: {{ pharma_company.contact_info }}</p>
+
+    <h2>Available in Stores</h2>
+    <ul>
+        {% for inventory in inventories %}
+            <li>
+                {{ inventory.store.store_name }}<br>
+                Address: {{ inventory.store.store_address }}<br>
+                Contact: {{ inventory.store.contact_number }}<br>
+                Stock: {{ inventory.stock_quantity }}<br>
+                Latitude : {{inventory.store.latitude}}<br>
+                Longitude : {{inventory.store.longitude}}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('search') }}">Back to Search</a>
+</body>
+</html>
